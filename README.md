@@ -9,8 +9,8 @@ y cuando se complete los procesos, correr:
 
 docker-compose up
 
-Luego hay que ir a la carpeta raiz del proyecto y allí se escribe:  python app.py
+Luego se activa el volumen en docker desktop  y  hay que ir a la carpeta raiz del proyecto y allí se escribe:  python app.py
 
-Por ultimo, se activa el volumen en docker desktop y se ingresa a la dirección   http://localhost:5000/almacen
+y se ingresa a la dirección   http://localhost:5000/almacen
 
 Y Ahí se puede observar el funcionamiento, tanto en la web como en la consola con diferentes peticiones.
