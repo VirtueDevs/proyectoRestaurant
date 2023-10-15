@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  flask_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/proyectoRestaurant
+    depends_on:
+      - mongo_db
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_HOST=0.0.0.0
+    working_dir: /proyectoRestaurant
+
+  mongo_db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - DBRestaurant:/data/db
+
+volumes:
+  DBRestaurant:

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Almacen{% endblock %}
+
+{% block content %}
+    <h1 class="mt-4">Almacen</h1>
+    <h3>Inventario de Ingredientes</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>imagen</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ingrediente in ingredientes %}
+                <tr>
+                    <td><img src="{{ ingrediente.image }}"  width="100"></td>
+                    <td>{{ ingrediente.name }}</td>
+                    <td>{{ ingrediente.quantity }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>   
+    </table>
+
+    <h3>Crea ordenes observando la cantidad de tus ingredientes</h3>
+    <form method="POST" action="{{ url_for('generar_orden') }}">
+        <button type="submit" class="btn btn-primary">Generar Nueva Orden</button>
+    </form>
+{% endblock %}

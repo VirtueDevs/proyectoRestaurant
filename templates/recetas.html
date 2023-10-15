@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Recetas{% endblock %}
+
+{% block content %}
+    <h1 class="mt-4">Recetas</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre de la Receta</th>
+                <th>Ingredientes</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for receta in recetas %}
+                <tr>
+                    <td>{{ receta.name }}</td>
+                    <td>
+                        {% for ingredient in receta.ingredients %}
+                            {{ ingredient.name }}: {{ ingredient.quantity }}
+                            {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% if receta.image %}
+                            <img src="{{ receta.image }}" alt="{{ receta.name }}" width="100">
+                        {% else %}
+                            No hay imagen disponible
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

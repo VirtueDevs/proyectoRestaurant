@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Historial de Compras{% endblock %}
+
+{% block content %}
+    <h1 class="mt-4">Historial de Compras</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ingrediente</th>
+                <th>Cantidad</th>
+                <th>Fecha y Hora</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for compra in compras %}
+                <tr>
+                    <td>{{ compra.ingrediente }}</td>
+                    <td>{{ compra.cantidad }}</td>
+                    <td>{{ compra.fecha }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
